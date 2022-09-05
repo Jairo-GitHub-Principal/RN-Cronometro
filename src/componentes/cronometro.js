@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity, ImageBackground,Image,StyleSheet } from '
 
 import { stiloCronometro,logoMarca } from "../estilos/estilos";
 
+
 class Cronometro extends Component {
 
     
@@ -22,9 +23,8 @@ class Cronometro extends Component {
             tempoS:0,
             tempoM:0,
             tempoH:0,
-            listatempo:[],
-            listaRegistro:[],
-
+           
+          
 
         }
        
@@ -118,11 +118,13 @@ class Cronometro extends Component {
         novostate.segundos = 0;
         novostate.minutos = 0;
         novostate.hora = 0;
-
+        
+        
+            
 
     }
 
-    
+       
     render() {
         let imagfundo = require('./atleta.jpg');
         return (
@@ -158,24 +160,36 @@ class Cronometro extends Component {
                      
                      
                      <TouchableOpacity 
-                     onPress={this.zeraSalvar}
+                      onPress={this.zeraSalvar}
+                                        
                      style={stiloCronometro.botaoFlexHorizo}>
                      <Text style={stiloCronometro.botaoText}>{this.state.ZeraSalvar}</Text>
                      </TouchableOpacity>
                 </View>
+
+                 {/** o conteudo da View abaixo vai exibir na tela a quandtidade de vezer que foi feito uma cronometragem,
+                  *   e o  tempo percorrido de cada cronometragem , que sera salvo apos clicar no botão zerar e salvar o zerar */}
 
                 <View style={stiloCronometro.nRtempContainer}>
                 <View style={{marginRight:60}}>
                     <Text>{this.props.labelRegistro}</Text>
                     <Text  style={{fontWeight:"800"}}>{this.state.nRegistro}</Text>
                 </View>
+               
                 <View style={{marginRight:20}} >
                     <Text >{this.props.labelTempo}</Text>
                     
                     
                     <Text style={{fontWeight:"800"}}>{this.state.tempoH +":"+ this.state.tempoM +":"+ this.state.tempoS}</Text>
                 </View>
+
+                
                 </View>
+
+
+               
+
+
             </View>
 
 
